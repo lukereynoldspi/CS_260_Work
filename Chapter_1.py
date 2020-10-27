@@ -1,9 +1,12 @@
 class Fraction:
 
     def __init__(self,top,bottom):
-
-        self.num = top
-        self.den = bottom
+        if top == int and bottom == int:
+            try:
+                common = self.gcd(top,bottom)
+                self.num = int(top / common)
+                self.den = int(bottom / common)
+            except
 
 
     def show(self):
@@ -18,19 +21,13 @@ class Fraction:
 
         return Fraction(newnum, newden)
 
-    def __add__(self, otherfraction):
-        newnum = self.num * otherfraction.den + self.den * otherfraction.num
-        newden = self.den * otherfraction.den
-        common = gcd(newnum, newden)
-        return Fraction(newnum // common, newden // common)
-
     def __eq__(self, other):
         firstnum = self.num * other.den
         secondnum = other.num * self.den
 
         return firstnum == secondnum
 
-    def gcd(m, n):
+    def gcd(self, m, n):
         while m % n != 0:
             oldm = m
             oldn = n
@@ -64,7 +61,9 @@ class Fraction:
 
         return Fraction(newnum, newden)
 
-e = Fraction(1,2)
-f = Fraction(1,4)
+e = Fraction(1,50)
+f = Fraction(2,10)
 
 print(e.__truediv__(f))
+
+
