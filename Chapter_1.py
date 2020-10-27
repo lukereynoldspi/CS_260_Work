@@ -1,12 +1,13 @@
 class Fraction:
 
     def __init__(self,top,bottom):
-        if top == int and bottom == int:
-            try:
-                common = self.gcd(top,bottom)
-                self.num = int(top / common)
-                self.den = int(bottom / common)
-            except
+        if isinstance(top, int) != True or isinstance(bottom, int) != True :
+            raise ValueError("The value(s) given are not integers!")
+        else:
+            common = self.gcd(top, bottom)
+            self.num = int(top / common)
+            self.den = int(bottom / common)
+
 
 
     def show(self):
@@ -61,9 +62,6 @@ class Fraction:
 
         return Fraction(newnum, newden)
 
-e = Fraction(1,50)
-f = Fraction(2,10)
-
-print(e.__truediv__(f))
-
+e = Fraction(2, 1.0)
+print(e.getDen())
 
